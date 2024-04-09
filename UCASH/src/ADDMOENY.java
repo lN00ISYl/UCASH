@@ -356,8 +356,6 @@ public class ADDMOENY extends javax.swing.JFrame {
         // Get the selected row index
     int selectedRow = table.getSelectedRow();
 
-    
-
     //  check if anything is selected or not
     if (selectedRow == -1) {
         JOptionPane.showMessageDialog(this, "Please select a row to remove.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -377,19 +375,15 @@ public class ADDMOENY extends javax.swing.JFrame {
         
         // check if something is choosen to delete
         if (rowsAffected > 0) {
-            //ask if you really wanna delete it
-            int r =JOptionPane.showConfirmDialog(null, "Do you really need to delete this category?","Deletion confirm",JOptionPane.YES_NO_OPTION);
-         
-            if (r==JOptionPane.YES_OPTION){    
+
             // removes the selected from the table
-            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) table.getModel();
-            model.removeRow(selectedRow);
+                javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) table.getModel();
+                model.removeRow(selectedRow);
             
             // update and change the total amount when something is remove from the table
-            int totalAmount = Integer.parseInt(totalamount.getText().replace(",", "")) - amount;
-            totalamount.setText(String.format("%,d", totalAmount));
-            JOptionPane.showMessageDialog(this, "Expense removed successfully.");
-                 }            
+                int totalAmount = Integer.parseInt(totalamount.getText().replace(",", "")) - amount;
+                totalamount.setText(String.format("%,d", totalAmount));
+                JOptionPane.showMessageDialog(this, "Expense removed successfully.");       
             }         
         }catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, ex);
