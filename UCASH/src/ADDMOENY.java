@@ -1,4 +1,5 @@
 
+import java.awt.event.KeyEvent;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -105,12 +106,6 @@ public class ADDMOENY extends javax.swing.JFrame {
             table.getColumnModel().getColumn(1).setResizable(false);
             table.getColumnModel().getColumn(2).setResizable(false);
         }
-          // Center the text in the table
-    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-    centerRenderer.setHorizontalAlignment(JLabel.CENTER);
-    for (int i = 0; i < table.getColumnCount(); i++) {
-        table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
-    }
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 129, 112));
@@ -177,6 +172,9 @@ public class ADDMOENY extends javax.swing.JFrame {
             }
         });
         ex.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                exKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 exKeyTyped(evt);
             }
@@ -189,6 +187,9 @@ public class ADDMOENY extends javax.swing.JFrame {
             }
         });
         a.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                aKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 aKeyTyped(evt);
             }
@@ -245,14 +246,15 @@ public class ADDMOENY extends javax.swing.JFrame {
                 .addGap(132, 132, 132))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(126, 126, 126)
-                            .addComponent(jLabel7)
-                            .addGap(174, 174, 174)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(126, 126, 126)
+                                .addComponent(jLabel7)
+                                .addGap(174, 174, 174))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -410,6 +412,37 @@ public class ADDMOENY extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_exKeyTyped
 
+    private void exKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_exKeyPressed
+
+    }//GEN-LAST:event_exKeyPressed
+
+    private void aKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_aKeyPressed
+        // make it so it wouldnt type more than 7 numbers
+        String amount_inputed = a.getText();
+        int length = amount_inputed.length();
+        
+           char amount = evt.getKeyChar();
+        
+        if(evt.getKeyChar() >= '0' && evt.getKeyChar()<='9' ){
+        
+            if (length <=7){
+            a.setEditable(true);
+            }else{
+            a.setEditable(false);
+            }
+        }else{
+                // allow the keys backspace and delete to edit it 
+            if(evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE){
+            //allow it to be editable
+            a.setEditable(true);
+            }else{
+            a.setEditable(false);
+            }
+        }
+        
+        
+    }//GEN-LAST:event_aKeyPressed
+
     
     public static void main(String args[]) {
       
@@ -418,6 +451,7 @@ public class ADDMOENY extends javax.swing.JFrame {
             public void run() {
                 new ADDMOENY().setVisible(true);
             }
+          
         });
     }
 
