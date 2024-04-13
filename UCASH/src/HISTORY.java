@@ -2,6 +2,7 @@
 import javax.swing.JOptionPane;
 import java.sql.*;
 import java.text.NumberFormat;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -13,10 +14,40 @@ public class HISTORY extends javax.swing.JFrame {
     public HISTORY() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+       allhistory();
         
       
     }
+    private void allhistory(){
+        try {
+            DefaultTableModel datatable = (DefaultTableModel) historytable.getModel();
+     
+
+
+            // Fetch all records from the expensetry table
+            ResultSet rs = Ddata.database.state.executeQuery("SELECT * FROM expensetry ORDER BY DATE ASC");
+
+            // Initialize the total to 0
+            int total = 0;
+
+            while (rs.next()) {
+                total += rs.getInt("AMOUNT");
+                Object[] o = {rs.getDate("DATE"), rs.getString("EXPENSES"), rs.getInt("AMOUNT")};
+                datatable.addRow(o);
+            }
+
+            // Format the total amount with commas
+            NumberFormat numberFormat = NumberFormat.getNumberInstance();
+            String formattedTotal = numberFormat.format(total);
+
+            // Display the total amount
+            totalamount.setText(formattedTotal);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+
+            }
     //show the history
     private void showhistory(){
      try{
@@ -102,10 +133,7 @@ public class HISTORY extends javax.swing.JFrame {
 
         historytable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "DATE", "EXPENSES", "AMOUNT"
@@ -209,7 +237,7 @@ public class HISTORY extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(151, 151, 151)
+                        .addGap(101, 101, 101)
                         .addComponent(jLabel7))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)

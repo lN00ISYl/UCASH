@@ -5,8 +5,7 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import java.text.NumberFormat;
-import javax.swing.JLabel;
-import javax.swing.table.DefaultTableCellRenderer;
+
 
 
 public class ADDMOENY extends javax.swing.JFrame {
@@ -252,9 +251,9 @@ public class ADDMOENY extends javax.swing.JFrame {
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(126, 126, 126)
+                                .addGap(142, 142, 142)
                                 .addComponent(jLabel7)
-                                .addGap(174, 174, 174))))
+                                .addGap(158, 158, 158))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -347,6 +346,8 @@ public class ADDMOENY extends javax.swing.JFrame {
        }catch(SQLException ex){
            JOptionPane.showMessageDialog(null, ex);
        }
+       a.setText(null);
+        ex.setText(null);
     }//GEN-LAST:event_jToggleButton5ActionPerformed
 
     private void exActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exActionPerformed
@@ -405,11 +406,7 @@ public class ADDMOENY extends javax.swing.JFrame {
     }//GEN-LAST:event_aKeyTyped
 
     private void exKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_exKeyTyped
-        //so that the amount would only accept letters
-        char ch = evt.getKeyChar();
-        if (!Character.isLetter(ch)){
-            evt.consume();
-        }
+   
     }//GEN-LAST:event_exKeyTyped
 
     private void exKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_exKeyPressed

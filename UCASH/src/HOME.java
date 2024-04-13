@@ -40,9 +40,9 @@ public class HOME extends javax.swing.JFrame {
     }
      //show total expenses this month
     private void showmonth(){
-         java.time.LocalDate currentDate = java.time.LocalDate.now();
-    int currentMonth = currentDate.getMonthValue();
-    String formattedMonth = String.format("%02d", currentMonth);
+           java.time.LocalDate currentDate = java.time.LocalDate.now();
+           int currentMonth = currentDate.getMonthValue();
+           String formattedMonth = String.format("%02d", currentMonth);
 
     try {
         ResultSet rs = Ddata.database.state.executeQuery("select * from expensetry where MONTH(DATE) = " + formattedMonth);
@@ -115,6 +115,7 @@ public class HOME extends javax.swing.JFrame {
 
         TODAYTOTAL.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         TODAYTOTAL.setForeground(new java.awt.Color(255, 255, 255));
+        TODAYTOTAL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TODAYTOTAL.setText("0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -122,13 +123,10 @@ public class HOME extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(TODAYTOTAL)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TODAYTOTAL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -149,6 +147,7 @@ public class HOME extends javax.swing.JFrame {
 
         MONTHLYTOTAL.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         MONTHLYTOTAL.setForeground(new java.awt.Color(255, 255, 255));
+        MONTHLYTOTAL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MONTHLYTOTAL.setText("0");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -157,12 +156,10 @@ public class HOME extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(MONTHLYTOTAL)
-                .addGap(100, 100, 100))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MONTHLYTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,7 +222,7 @@ public class HOME extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
