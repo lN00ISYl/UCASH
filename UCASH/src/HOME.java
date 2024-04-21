@@ -28,10 +28,10 @@ public class HOME extends javax.swing.JFrame {
             while(rs.next()){
                 total+= rs.getInt("AMOUNT");
             }
-            
+            //giving comma in the showed amount
              NumberFormat numberFormat = NumberFormat.getNumberInstance();
             String formattedTotal = numberFormat.format(total);
-            TODAYTOTAL.setText(formattedTotal);
+            TODAYTOTAL.setText("₱"+formattedTotal);
         } catch (SQLException ex) {
             Logger.getLogger(HOME.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -50,9 +50,10 @@ public class HOME extends javax.swing.JFrame {
             while(rs.next()){
                 total+= rs.getInt("AMOUNT");
             }
+              //giving comma in the showed amount
              NumberFormat numberFormat = NumberFormat.getNumberInstance();
             String formattedTotal = numberFormat.format(total);
-            MONTHLYTOTAL.setText(formattedTotal);
+            MONTHLYTOTAL.setText("₱"+formattedTotal);
         
        
     } catch (SQLException ex) {
@@ -66,198 +67,159 @@ public class HOME extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         TODAYTOTAL = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         MONTHLYTOTAL = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(15, 15, 15));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 70)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 129, 112));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UCASH IMAGES/LOGO AND BG/UCASHLOGO.png"))); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 91, 65));
         jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("ADD EXPENSES");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UCASH IMAGES/BUTTONS/Add Expenses OPEN.png"))); // NOI18N
+        jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
+        jButton1.setMaximumSize(new java.awt.Dimension(233, 90));
+        jButton1.setMinimumSize(new java.awt.Dimension(233, 90));
+        jButton1.setPreferredSize(new java.awt.Dimension(233, 90));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton1MouseReleased(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 233, 57));
 
         jButton2.setBackground(new java.awt.Color(0, 91, 65));
         jButton2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("EXPENSE HISTORY");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UCASH IMAGES/BUTTONS/Expense History OPEN.png"))); // NOI18N
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setBorderPainted(false);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton2MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton2MouseReleased(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 233, 57));
 
-        jPanel2.setBackground(new java.awt.Color(0, 91, 65));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UCASH IMAGES/BUTTONS/MAIN DARK BG TEXT.png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 233, 57));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("TODAY'S EXPENSES");
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UCASH IMAGES/BUTTONS/MAIN DARK BG TEXT.png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, 233, 57));
 
         TODAYTOTAL.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         TODAYTOTAL.setForeground(new java.awt.Color(255, 255, 255));
         TODAYTOTAL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TODAYTOTAL.setText("0");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TODAYTOTAL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TODAYTOTAL)
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-
-        jPanel4.setBackground(new java.awt.Color(0, 91, 65));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("MONTHLY EXPENSES");
+        jPanel1.add(TODAYTOTAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 260, 170, 20));
 
         MONTHLYTOTAL.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         MONTHLYTOTAL.setForeground(new java.awt.Color(255, 255, 255));
         MONTHLYTOTAL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MONTHLYTOTAL.setText("0");
+        jPanel1.add(MONTHLYTOTAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 260, 170, 20));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MONTHLYTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MONTHLYTOTAL)
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UCASH IMAGES/TEXT/Monthly Expenses.png"))); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 229, 90));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UCASH IMAGES/TEXT/Todays Expense.png"))); // NOI18N
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 229, 90));
 
         jButton3.setBackground(new java.awt.Color(255, 51, 51));
         jButton3.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("EXIT");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UCASH IMAGES/BUTTONS/Exit OPEN.png"))); // NOI18N
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.setBorderPainted(false);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton3MouseReleased(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 570, 233, 57));
 
-        jPanel3.setBackground(new java.awt.Color(15, 15, 15));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
-        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UCASH IMAGES/BUTTONS/MAIN DARK BG TEXT.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 580, 233, 57));
 
-        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 70)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 129, 112));
-        jLabel7.setText("UCash");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UCASH IMAGES/LOGO AND BG/BACKGROUND.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 20, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UCASH IMAGES/LOGO AND BG/BACKGROUND.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(187, 187, 187))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(149, 149, 149))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 651, 767));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -284,6 +246,83 @@ public class HOME extends javax.swing.JFrame {
 
         this.setFocusable(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+//BUTTONS IMAGE AND FUNCTION
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        // ADD BUTTON NOT HOVERED
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Add Expenses OPEN.png")));
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // ADD BUTTON HOVERED
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Add Expenses HOVER.png")));
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        // ADD BUTTON CLICKED
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/ALL CLICKED.png")));
+    }//GEN-LAST:event_jButton1MousePressed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // ADD BUTTON CLICKED
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Add Expenses HOVER.png")));
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseReleased
+        // ADD BUTTON RELEASED
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Add Expenses OPEN.png")));
+    }//GEN-LAST:event_jButton1MouseReleased
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+        // EXPENSE HISTORY BUTTON NOT HOVERED
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Expense History OPEN.png")));
+    }//GEN-LAST:event_jButton2MouseExited
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        // EXPENSE HISTORY BUTTON HOVERED
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Expense History HOVER.png")));
+
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // EXPENSE HISTORY BUTTON CLICKED
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Expense History HOVER.png")));
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+        // EXPENSE HISTORY BUTTON CLICKED
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/ALL CLICKED.png")));
+    }//GEN-LAST:event_jButton2MousePressed
+
+    private void jButton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseReleased
+        // EXPENSE HISTORY BUTTON RELEASED
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Expense History OPEN.png")));
+    }//GEN-LAST:event_jButton2MouseReleased
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+        // EXIT BUTTON NOT HOVERED
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Exit OPEN.png")));
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        // EXIT BUTTON HOVERED
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Exit HOVER.png")));
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
+        // EXIT BUTTON CLICKED
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Exit CLICKED.png")));
+    }//GEN-LAST:event_jButton3MousePressed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+       // EXIT BUTTON CLICKED
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Exit HOVER.png")));
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseReleased
+        // EXIT BUTTON RELEASED
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("UCASH IMAGES/BUTTONS/Exit OPEN.png")));
+    }//GEN-LAST:event_jButton3MouseReleased
     
     
     
@@ -303,12 +342,14 @@ public class HOME extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
