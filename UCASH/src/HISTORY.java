@@ -2,6 +2,7 @@
 import javax.swing.JOptionPane;
 import java.sql.*;
 import java.text.NumberFormat;
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 
 public class HISTORY extends javax.swing.JFrame {
@@ -17,10 +18,16 @@ public class HISTORY extends javax.swing.JFrame {
         try {
             DefaultTableModel datatable = (DefaultTableModel) historytable.getModel();
 
-            // gets all the records in the database
-            ResultSet rs = Ddata.database.state.executeQuery("SELECT * FROM expensetry ORDER BY DATE ASC");
+            // Get the current year
+            int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
-            // total of all the expensese
+            // Construct the SQL query string to select records for the current year
+            String getyear = "SELECT * FROM expensetry WHERE YEAR(DATE) = " + currentYear + " ORDER BY DATE DESC";
+
+            // Execute the query
+            ResultSet rs = Ddata.database.state.executeQuery(getyear);
+
+            // Total of all the expenses for the current year
             int total = 0;
 
             while (rs.next()) {
@@ -35,10 +42,10 @@ public class HISTORY extends javax.swing.JFrame {
 
             // Display the total amount
             totalamount.setText(formattedTotal);
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-
     }
 
     // show the history
@@ -197,7 +204,7 @@ public class HISTORY extends javax.swing.JFrame {
         tablecenter centertable = new tablecenter();
         historytable.getColumnModel().getColumn(0).setCellRenderer(centertable);
         historytable.getColumnModel().getColumn(1).setCellRenderer(centertable);
-        historytable.getColumnModel().getColumn(2).setCellRenderer(centertable);
+        historytable.getColumnModel().getColumn(2).setCellRenderer(new COMMAS());
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 364));
 

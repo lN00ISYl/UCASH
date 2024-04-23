@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 import java.text.NumberFormat;
 
-
 public class ADDMOENY extends javax.swing.JFrame {
 
     public ADDMOENY() {
@@ -21,7 +20,7 @@ public class ADDMOENY extends javax.swing.JFrame {
         // gets the date now
         java.time.LocalDate now = java.time.LocalDate.now();
         // get the dates from before the day today
-        // java.time.LocalDate limit = now.minusDays(14);
+        // java.time.LocalDate limit = now.minusDays(2);
 
         try {
             javax.swing.table.DefaultTableModel datatable = (javax.swing.table.DefaultTableModel) table.getModel();
@@ -112,6 +111,7 @@ public class ADDMOENY extends javax.swing.JFrame {
                 return canEdit[columnIndex];
             }
         });
+
         table.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(table);
         if (table.getColumnModel().getColumnCount() > 0) {
@@ -124,6 +124,8 @@ public class ADDMOENY extends javax.swing.JFrame {
         table.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
         table.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
         table.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+
+        table.getColumnModel().getColumn(2).setCellRenderer(new COMMAS());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 129, 112));
@@ -240,6 +242,7 @@ public class ADDMOENY extends javax.swing.JFrame {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 exKeyTyped(evt);
             }
+
         });
         jPanel1.add(ex, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 171, 37));
 
@@ -611,7 +614,6 @@ public class ADDMOENY extends javax.swing.JFrame {
     }// GEN-LAST:event_exKeyTyped
 
     private void exKeyPressed(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_exKeyPressed
-      
 
     }// GEN-LAST:event_exKeyPressed
 
@@ -620,23 +622,25 @@ public class ADDMOENY extends javax.swing.JFrame {
         String amount_inputed = a.getText();
         int length = amount_inputed.length();
 
-        char amount = evt.getKeyChar();
-
         if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
 
-            if (length <= 7) {
-                a.setEditable(true);
-            } else {
-                a.setEditable(false);
-            }
+            if (evt.getKeyChar() == '0' && amount_inputed.isEmpty()) {
+            // Disallow entering '0' if the text field is empty
+            a.setEditable(false);
+        } else if (length <= 6) {
+            a.setEditable(true);
         } else {
-            // allow the keys backspace and delete to edit it
-            if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE || evt.getID() == MouseEvent.MOUSE_CLICKED) {
-                // allow it to be editable
-                a.setEditable(true);
-            } else {
-                a.setEditable(false);
-            }
+            a.setEditable(false);
+        }
+    } else {
+        // allow the keys backspace and delete to edit it
+        if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE
+                || evt.getID() == MouseEvent.MOUSE_CLICKED) {
+            // allow it to be editable
+            a.setEditable(true);
+        } else {
+            a.setEditable(false);
+        }
         }
 
     }// GEN-LAST:event_aKeyPressed

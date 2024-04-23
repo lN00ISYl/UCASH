@@ -7,7 +7,7 @@ package Ddata;
 import java.sql.*;
 import javax.swing.JOptionPane;
 public class database {
-     public static Connection con;
+    public static Connection con;
     public static Statement state;
     static{
     try{
